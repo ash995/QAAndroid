@@ -65,7 +65,7 @@ public class PostQuestionFragment extends Fragment implements PostQuestionContra
     @Inject
     AuthManager authManager;
 
-    String[] topicList = {"a", "b", "c", "d", "e", "f"};
+    String[] topicList;
     boolean[] checkedItems = new boolean[topicList.length];
     List<Integer> checkedTopics = new ArrayList<>();
 //    List<String> selectedTopics = new ArrayList<>();
@@ -74,6 +74,7 @@ public class PostQuestionFragment extends Fragment implements PostQuestionContra
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((IITBQA)getActivity().getApplication()).createPostQuestionComponent().inject(this);
+        topicList = authManager.getTopicList();
     }
 
 

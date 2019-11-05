@@ -16,6 +16,9 @@ public class AuthManager {
     String[] topicsArray = {"General", "Computer Science", "Theory", "Systems", "Machine Learning", "Artificial Intelligence", "Cryptography", "Algorithms", "Complexity", "Quantum Physics", "Physics", "Chemistry", "Biology", "Sciences"};
 
 
+    public String[] getTopicList() {
+        return topicsArray;
+    }
 
 
     public AuthManager(SharedPreferences sharedPreferences, Gson gson) {

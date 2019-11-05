@@ -73,7 +73,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.post_question_page, container, false);
+        View view = inflater.inflate(R.layout.profile_page, container, false);
         ButterKnife.bind(this, view);
 
         tvBio.setText(authManager.getBio());
