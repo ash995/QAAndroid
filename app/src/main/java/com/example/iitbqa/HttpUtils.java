@@ -3,7 +3,7 @@ package com.example.iitbqa;
 class HttpUtils {
 
     private static final String BASE_URL_PROD = "http://178.79.171.158:8080/pitstop-customer/";
-    private static final String BASE_URL_STAGE = "http://103.21.126.82:8080/api/v1/";
+    private static final String BASE_URL_STAGE = "http://10.0.2.2.82:8000/api/v1/";
 
     public static String getBaseUrl() {
         if (BuildConfig.DEBUG) {

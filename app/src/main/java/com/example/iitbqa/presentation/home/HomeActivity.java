@@ -41,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
-        ((IITBQA)getApplication()).getAppComponent().inject(this);
+        ((IITBQA) getApplication()).getAppComponent().inject(this);
 
         authManager.saveUser(new User());
 
