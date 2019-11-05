@@ -6,10 +6,15 @@ public class Constants {
         public static final String QUESTION = "QUESTION";
         public static final String DESCRIPTION = "DESCRIPTION";
         public static final String TOPICS = "TOPICS";
+        public static final String QUESTION_ID = "QUESTION_ID";
     }
 
     public class PrefKeys {
 
         public static final String USER = "USER";
+    }
+
+    public class IntentKeys {
+        public static final String QUESTION_ID = "QUESTION_ID";
     }
 }

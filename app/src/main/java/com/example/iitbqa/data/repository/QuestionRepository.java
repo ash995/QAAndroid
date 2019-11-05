@@ -6,6 +6,7 @@ import com.example.iitbqa.AuthManager;
 import com.example.iitbqa.data.ApiService;
 import com.example.iitbqa.data.models.PostQuestionRequest;
 import com.example.iitbqa.data.models.Question;
+import com.example.iitbqa.data.models.QuestionResponse;
 import com.example.iitbqa.exception.EmptyListException;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class QuestionRepository {
 
     public Observable<List<Question>> getUserFeed(boolean fromRemote) {
         if (fromRemote) {
-            return retrofit.create(ApiService.class).getQuestionList(authManager.getUserId())
+            return retrofit.create(ApiService.class).getQuestionList(authManager.getLdapId())
                     .flatMap(questions -> {
                         questionList = questions;
                         return Observable.just(questions);
@@ -49,5 +50,9 @@ public class QuestionRepository {
                     return Observable.just(questionList);
                 });
 
+    }
+
+    public Observable<QuestionResponse> getQuestion(int questionId) {
+        return null;
     }
 }
