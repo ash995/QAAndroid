@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.iitbqa.AuthManager;
 import com.example.iitbqa.IITBQA;
@@ -66,7 +67,7 @@ public class PostQuestionFragment extends Fragment implements PostQuestionContra
     AuthManager authManager;
 
     String[] topicList;
-    boolean[] checkedItems = new boolean[topicList.length];
+    boolean[] checkedItems;
     List<Integer> checkedTopics = new ArrayList<>();
 //    List<String> selectedTopics = new ArrayList<>();
 
@@ -75,6 +76,7 @@ public class PostQuestionFragment extends Fragment implements PostQuestionContra
         super.onCreate(savedInstanceState);
         ((IITBQA)getActivity().getApplication()).createPostQuestionComponent().inject(this);
         topicList = authManager.getTopicList();
+        checkedItems = new boolean[topicList.length];
     }
 
 
@@ -96,7 +98,14 @@ public class PostQuestionFragment extends Fragment implements PostQuestionContra
                         }
                     }
                     else {
-                        checkedTopics.remove(which);
+                        int j=0;
+                        for(int i: checkedTopics) {
+                            if (i == which) {
+                                checkedTopics.remove(j);
+                                break;
+                            }
+                            j++;
+                        }
                     }
                 }
             });
@@ -108,6 +117,8 @@ public class PostQuestionFragment extends Fragment implements PostQuestionContra
 //                    for (int i: checkedTopics) {
 //                        selectedTopics.add(topicList[i]);
 //                    }
+                    Toast.makeText(getContext(), String.valueOf(checkedTopics.size()), Toast.LENGTH_LONG).show();
+                    monitorPostButtonStatus(question, description, checkedTopics);
 
 
                 }

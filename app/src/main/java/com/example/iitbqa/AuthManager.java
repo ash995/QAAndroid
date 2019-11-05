@@ -28,10 +28,12 @@ public class AuthManager {
 
     public void saveUser(User user) {
         List<Integer> subscribedTopics = new ArrayList<>();
+        subscribedTopics.add(1);
         subscribedTopics.add(2);
-        subscribedTopics.add(3);
-        subscribedTopics.add(8);
-        User user1 = new User(1, "roshanp", "Roshan", "CSE", "$Money#", subscribedTopics, "PMRF fellow", "PhD", "F");
+        subscribedTopics.add(7);
+        //subscribedTopics.add(13);
+        User user1 = new User(1, "roshanp", "Roshan", "CSE", "$Money#", subscribedTopics, "PMRF fellow", "PHD", "F");
+        User user2 = new User(2, "muthumani", "Muthu", "PHY", "NoFan%", subscribedTopics, "South Indian Guy", "PHD", "F");
         String userJson = gson.toJson(user1, User.class);
         sharedPreferences.edit().putString(Constants.PrefKeys.USER, userJson).commit();
     }
