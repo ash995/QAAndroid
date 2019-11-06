@@ -1,11 +1,13 @@
 package com.example.iitbqa.presentation.question;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -48,7 +50,19 @@ public class AnswerDialog extends DialogFragment {
         if (getArguments() != null) {
             questionId = getArguments().getInt(Constants.IntentKeys.QUESTION_ID);
         }
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialogStyle);
         ((IITBQA)getActivity().getApplication()).getAppComponent().inject(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+            dialog.getWindow().setLayout(width, height);
+        }
     }
 
     @Nullable
