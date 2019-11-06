@@ -107,7 +107,7 @@ public class FeedListAdapter extends RecyclerView.Adapter<FeedListAdapter.ViewHo
                 layoutParams.setMargins(12, 0, 12, 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setPadding(8, 8, 8, 8);
-                textView.setBackgroundColor(Color.parseColor("#EAECEB"));
+                textView.setBackgroundColor(Color.parseColor("#00574B"));
                 textView.setTextColor(Color.parseColor("#ffffff"));
 
                 llTopics.addView(textView);
