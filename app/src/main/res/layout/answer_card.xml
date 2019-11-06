@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -45,25 +45,23 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
             android:orientation="vertical"
-            app:layout_constraintLeft_toRightOf="@id/logoContainer"
-            app:layout_constraintTop_toTopOf="@id/logoContainer"
             app:layout_constraintBottom_toBottomOf="@id/logoContainer"
-            android:layout_marginLeft="12dp">
+            app:layout_constraintLeft_toRightOf="@id/logoContainer"
+            app:layout_constraintTop_toTopOf="@id/logoContainer">
 
             <TextView
                 android:id="@+id/tv_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Ashwin, phd student"/>
+                tools:text="Ashwin, phd student" />
 
             <TextView
                 android:id="@+id/tv_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Answered on 21st Nov"/>
-
-
+                tools:text="Answered on 21st Nov" />
 
 
         </LinearLayout>
@@ -75,9 +73,9 @@
         android:id="@+id/tv_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="asklcscsckjcdcmdck"
         android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"/>
+        android:layout_marginRight="12dp"
+        tools:text="asklcscsckjcdcmdck" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -90,50 +88,68 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:visibility="visible">
+            android:visibility="invisible">
 
             <ImageView
                 android:id="@+id/iv_upvote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/upvote"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:src="@drawable/upvote" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Upvote"
                 android:layout_gravity="center"
-                android:layout_marginLeft="8dp"/>
+                android:layout_marginLeft="8dp"
+                android:text="Upvote" />
 
             <TextView
                 android:id="@+id/tv_upvote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="1.1k"
                 android:layout_gravity="center"
-                android:layout_marginLeft="4dp"/>
+                android:layout_marginLeft="4dp"
+                tools:text="1.1k" />
 
             <ImageView
                 android:id="@+id/iv_downvote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/downvote"
+                android:layout_marginLeft="24dp"
                 android:padding="8dp"
-                android:layout_marginLeft="24dp"/>
+                android:src="@drawable/downvote" />
 
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_upvoted"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_upvote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:visibility="invisible"
-            tools:text="You have already upvoted this question"/>
-    </FrameLayout>
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/tv_upvoted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_margin="12dp"
+                android:visibility="visible"
+                tools:text="You have already upvoted this question" />
+
+            <TextView
+                android:id="@+id/tv_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/tv_upvoted"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:text="12 upvotes"
+                android:layout_marginRight="12dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
 
 </LinearLayout>

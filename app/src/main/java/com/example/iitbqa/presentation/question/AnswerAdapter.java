@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindInt;
 import butterknife.BindView;
@@ -87,6 +88,12 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
         @BindView(R.id.tv_upvoted)
         TextView tvUpvoted;
 
+        @BindView(R.id.cl_upvote)
+        ConstraintLayout clUpvote;
+
+        @BindView(R.id.tv_up)
+        TextView tvUp;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -99,17 +106,18 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
             tvAnswer.setText(answer.getContent());
 
             llUpvote.setVisibility(View.VISIBLE);
-            tvUpvoted.setVisibility(View.GONE);
+            clUpvote.setVisibility(View.GONE);
 
 
             for (Vote vote: voteList) {
                 if (vote.getAnswerId() == answer.getId()) {
-                    tvUpvoted.setVisibility(View.VISIBLE);
+                    clUpvote.setVisibility(View.VISIBLE);
                     if (vote.isUpvote()) {
                         tvUpvoted.setText("You have already upvoted this answer");
                     } else {
                         tvUpvoted.setText("You have already downvoted this answer");
                     }
+                    tvUp.setText(answer.getVotes() + " upvotes");
                     llUpvote.setVisibility(View.GONE);
                 }
             }
