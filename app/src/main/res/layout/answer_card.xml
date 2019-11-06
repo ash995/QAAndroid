@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:visibility="invisible">
+            android:visibility="visible">
 
             <ImageView
                 android:id="@+id/iv_upvote"
@@ -127,7 +127,8 @@
             android:id="@+id/cl_upvote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="12dp">
 
             <TextView
                 android:id="@+id/tv_upvoted"
@@ -135,7 +136,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_margin="12dp"
                 android:visibility="visible"
                 tools:text="You have already upvoted this question" />
 
