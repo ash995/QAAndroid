@@ -1,6 +1,7 @@
 package com.example.iitbqa.data.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FeedQuestionModel {
@@ -11,6 +12,12 @@ public class FeedQuestionModel {
     String question;
     String description;
     String numAnswers;
+    private String userName;
+    private String userBio;
+    private String userDept;
+    private String userDegree;
+    private String userSpecialization;
+    private Date timestamp;
 
     String[] topicsArray = {"General", "Computer Science", "Theory", "Systems", "Machine Learning", "Artificial Intelligence", "Cryptography", "Algorithms", "Complexity", "Quantum Physics", "Physics", "Chemistry", "Biology", "Sciences"};
 
@@ -20,12 +27,66 @@ public class FeedQuestionModel {
         this.description = question.getDescription();
         this.numAnswers = question.getNumAnswers() + " have answered this question";
         this.id = question.getId();
+        this.userName = question.getUserName();
+        this.userBio = question.getUserBio();
+        this.userDept = question.getUserDept();
+        this.userDegree = question.getUserDegree();
+        this.userSpecialization = question.getUserSpecialization();
+        this.timestamp = question.getTimestamp();
 
         List<String> topicList = new ArrayList<>();
         for (int i: question.getTopics()) {
             topicList.add(topicsArray[i]);
         }
         this.topicsList = topicList;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserBio() {
+        return userBio;
+    }
+
+    public void setUserBio(String userBio) {
+        this.userBio = userBio;
+    }
+
+    public String getUserDept() {
+        return userDept;
+    }
+
+    public void setUserDept(String userDept) {
+        this.userDept = userDept;
+    }
+
+    public String getUserDegree() {
+        return userDegree;
+    }
+
+    public void setUserDegree(String userDegree) {
+        this.userDegree = userDegree;
+    }
+
+    public String getUserSpecialization() {
+        return userSpecialization;
+    }
+
+    public void setUserSpecialization(String userSpecialization) {
+        this.userSpecialization = userSpecialization;
     }
 
     public int getId() {

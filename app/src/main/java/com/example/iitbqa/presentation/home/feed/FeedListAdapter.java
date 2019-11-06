@@ -12,12 +12,15 @@ import android.widget.TextView;
 import com.example.iitbqa.R;
 import com.example.iitbqa.data.models.FeedQuestionModel;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.iitbqa.presentation.question.AnswerAdapter.DATE_FORMAT_NOW;
 
 public class FeedListAdapter extends RecyclerView.Adapter<FeedListAdapter.ViewHolder> {
 
@@ -49,7 +52,7 @@ public class FeedListAdapter extends RecyclerView.Adapter<FeedListAdapter.ViewHo
     }
 
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.tv_user)
         TextView tvUser;
@@ -72,6 +75,9 @@ public class FeedListAdapter extends RecyclerView.Adapter<FeedListAdapter.ViewHo
         @BindView(R.id.cl_ques)
         ConstraintLayout clQuestion;
 
+        @BindView(R.id.tv_date)
+        TextView tvDate;
+
         ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -88,18 +94,19 @@ public class FeedListAdapter extends RecyclerView.Adapter<FeedListAdapter.ViewHo
             tvQuestion.setText(feedQuestionModel.getQuestion());
             tvDescription.setText(feedQuestionModel.getDescription());
             tvNumAns.setText(feedQuestionModel.getNumAnswers());
-            tvUser.setText(feedQuestionModel.getUser());
+            tvUser.setText(feedQuestionModel.getUserName());
+            tvDate.setText("Answered on " + new SimpleDateFormat(DATE_FORMAT_NOW).format(feedQuestionModel.getTimestamp()));
 
             llTopics.removeAllViews();
-            for (String topic: feedQuestionModel.getTopicsList()) {
+            for (String topic : feedQuestionModel.getTopicsList()) {
                 TextView textView = new TextView(context);
                 textView.setText(topic);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
                 );
-                layoutParams.setMargins(8,0,8,0);
+                layoutParams.setMargins(8, 0, 8, 0);
                 textView.setLayoutParams(layoutParams);
-                textView.setPadding(4,4,4,4);
+                textView.setPadding(4, 4, 4, 4);
                 textView.setBackgroundColor(Color.parseColor("#808080"));
                 textView.setTextColor(Color.parseColor("#000000"));
 

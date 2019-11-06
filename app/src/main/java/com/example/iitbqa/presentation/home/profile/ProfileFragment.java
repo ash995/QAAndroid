@@ -39,14 +39,15 @@ public class ProfileFragment extends Fragment implements ProfileContract.View{
     @BindView(R.id.tv_cred)
     TextView tvCred;
 
-    @BindView(R.id.tv_type)
-    TextView tvType;
+    @BindView(R.id.tv_degree)
+    TextView tvDegree;
+
+    @BindView(R.id.tv_upvote)
+    TextView tvUpvote;
 
     @BindView(R.id.tv_dept)
     TextView tvDept;
 
-    @BindView(R.id.tv_year)
-    TextView tvYear;
 
     @BindView(R.id.tv_ldap)
     TextView tvLdap;
@@ -79,6 +80,9 @@ public class ProfileFragment extends Fragment implements ProfileContract.View{
         tvBio.setText(authManager.getBio());
         tvLdap.setText(authManager.getLdapId());
         tvName.setText(authManager.getName());
+        tvDegree.setText(authManager.getDegree());
+        tvDept.setText(authManager.getDepartment());
+        tvUpvote.setText(authManager.getUpvotes() + " Upvotes");
 
 
 

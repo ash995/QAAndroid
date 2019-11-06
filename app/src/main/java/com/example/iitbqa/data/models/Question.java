@@ -36,11 +36,72 @@ public class Question {
     @Expose
     private Date timestamp;
 
+    @SerializedName("username")
+    @Expose
+    private String userName;
+
+    @SerializedName("userbio")
+    @Expose
+    private String userBio;
+
+    @SerializedName("userdepartment")
+    @Expose
+    private String userDept;
+
+    @SerializedName("userdegree")
+    @Expose
+    private String userDegree;
+
+    @SerializedName("userspecialization")
+    @Expose
+    private String userSpecialization;
+
+
     public Question(String userId, List<Integer> topics, String ques, String description) {
         this.userId = userId;
         this.topics = topics;
         this.ques = ques;
         this.description = description;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserBio() {
+        return userBio;
+    }
+
+    public void setUserBio(String userBio) {
+        this.userBio = userBio;
+    }
+
+    public String getUserDept() {
+        return userDept;
+    }
+
+    public void setUserDept(String userDept) {
+        this.userDept = userDept;
+    }
+
+    public String getUserDegree() {
+        return userDegree;
+    }
+
+    public void setUserDegree(String userDegree) {
+        this.userDegree = userDegree;
+    }
+
+    public String getUserSpecialization() {
+        return userSpecialization;
+    }
+
+    public void setUserSpecialization(String userSpecialization) {
+        this.userSpecialization = userSpecialization;
     }
 
     public int getId() {

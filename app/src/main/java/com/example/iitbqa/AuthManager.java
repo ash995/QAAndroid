@@ -37,8 +37,8 @@ public class AuthManager {
         subscribedTopics2.add(10);
         subscribedTopics2.add(13);
         //subscribedTopics.add(13);
-        User user1 = new User(1, "roshanp", "Roshan", "CSE", "$Money#", subscribedTopics1, "PMRF fellow", "PHD", "F");
-        User user2 = new User(2, "muthumani", "Muthu", "PHY", "NoFan%", subscribedTopics2, "South Indian Guy", "PHD", "F");
+        User user1 = new User(1, "roshanp", "Roshan", "CSE", "$Money#", subscribedTopics1, "PMRF fellow", "PHD", "F", 10);
+        User user2 = new User(2, "muthumani", "Muthu", "PHY", "NoFan%", subscribedTopics2, "South Indian Guy", "PHD", "F", 10);
         String userJson = gson.toJson(user1, User.class);
         sharedPreferences.edit().putString(Constants.PrefKeys.USER, userJson).commit();
     }
@@ -66,5 +66,17 @@ public class AuthManager {
 
     public String getName() {
         return gson.fromJson(sharedPreferences.getString(Constants.PrefKeys.USER, null), User.class).getName();
+    }
+
+    public String getDegree() {
+        return gson.fromJson(sharedPreferences.getString(Constants.PrefKeys.USER, null), User.class).getDegree();
+    }
+
+    public String getDepartment() {
+        return gson.fromJson(sharedPreferences.getString(Constants.PrefKeys.USER, null), User.class).getDepartment();
+    }
+
+    public int getUpvotes() {
+        return gson.fromJson(sharedPreferences.getString(Constants.PrefKeys.USER, null), User.class).getUpvotes();
     }
 }

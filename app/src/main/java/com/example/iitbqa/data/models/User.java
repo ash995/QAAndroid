@@ -13,9 +13,10 @@ public class User {
     private String bio;
     private String degree;
     private String year;
+    private int upvotes;
 
 
-    public User(int id, String ldapId, String name, String department, String password, List<Integer> subscribedTopics, String bio, String degree, String year) {
+    public User(int id, String ldapId, String name, String department, String password, List<Integer> subscribedTopics, String bio, String degree, String year, int upvotes) {
         this.id = id;
         this.ldapId = ldapId;
         this.name = name;
@@ -24,6 +25,31 @@ public class User {
         this.subscribedTopics = subscribedTopics;
         this.bio = bio;
         this.degree = degree;
+        this.year = year;
+        this.upvotes = upvotes;
+    }
+
+    public int getUpvotes() {
+        return upvotes;
+    }
+
+    public void setUpvotes(int upvotes) {
+        this.upvotes = upvotes;
+    }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
         this.year = year;
     }
 
