@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 
 import com.example.iitbqa.AuthManager;
 import com.example.iitbqa.data.ApiService;
+import com.example.iitbqa.data.models.PostAnswerRequest;
 import com.example.iitbqa.data.models.PostQuestionRequest;
 import com.example.iitbqa.data.models.Question;
 import com.example.iitbqa.data.models.QuestionResponse;
@@ -56,4 +57,7 @@ public class QuestionRepository {
         return retrofit.create(ApiService.class).getQuestion(authManager.getLdapId(), questionId);
     }
 
+    public Observable<QuestionResponse> postAnswer(PostAnswerRequest postAnswerRequest) {
+        return retrofit.create(ApiService.class).postAnswer(postAnswerRequest);
+    }
 }

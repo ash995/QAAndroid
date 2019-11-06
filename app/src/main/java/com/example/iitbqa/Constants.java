@@ -7,6 +7,7 @@ public class Constants {
         public static final String DESCRIPTION = "DESCRIPTION";
         public static final String TOPICS = "TOPICS";
         public static final String QUESTION_ID = "QUESTION_ID";
+        public static final String POST_ANSWER = "POST_ANSWER";
     }
 
     public class PrefKeys {

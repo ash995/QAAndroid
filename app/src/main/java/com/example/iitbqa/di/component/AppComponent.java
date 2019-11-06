@@ -8,6 +8,7 @@ import com.example.iitbqa.di.modules.QuestionModule;
 import com.example.iitbqa.di.modules.RepositoryModule;
 import com.example.iitbqa.di.modules.UserModule;
 import com.example.iitbqa.presentation.home.HomeActivity;
+import com.example.iitbqa.presentation.question.AnswerDialog;
 
 import javax.inject.Singleton;
 
@@ -26,4 +27,6 @@ public interface AppComponent {
     QuestionComponent plus(QuestionModule module);
 
     void inject(HomeActivity homeActivity);
+
+    void inject(AnswerDialog answerDialog);
 }

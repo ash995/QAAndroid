@@ -17,6 +17,12 @@ public class PostAnswerRequest {
     @Expose
     private int question;
 
+    public PostAnswerRequest(int user, String content, int question) {
+        this.user = user;
+        this.content = content;
+        this.question = question;
+    }
+
     public int getUser() {
         return user;
     }

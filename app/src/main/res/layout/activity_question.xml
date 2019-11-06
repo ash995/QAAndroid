@@ -35,4 +35,13 @@
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/btn_post_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:text="post answer"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

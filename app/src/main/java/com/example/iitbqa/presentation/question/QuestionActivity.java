@@ -8,24 +8,31 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iitbqa.Constants;
 import com.example.iitbqa.IITBQA;
 import com.example.iitbqa.R;
+import com.example.iitbqa.data.models.PostAnswerRequest;
 import com.example.iitbqa.data.models.QuestionResponse;
 import com.example.iitbqa.presentation.home.feed.FeedListAdapter;
 
 import javax.inject.Inject;
 
-public class QuestionActivity extends AppCompatActivity implements QuestionContract.View, AnswerAdapter.ClickListener {
+public class QuestionActivity extends AppCompatActivity implements QuestionContract.View, AnswerAdapter.ClickListener,
+AnswerDialog.ReturnInterface{
 
     @BindView(R.id.rv_answer)
     RecyclerView rvAnswer;
 
     @BindView(R.id.tv_question)
     TextView tvQuestion;
+
+    @BindView(R.id.btn_post_answer)
+    Button btnPostAnswer;
+
 
     @Inject
     QuestionContract.Presenter presenter;
@@ -42,6 +49,15 @@ public class QuestionActivity extends AppCompatActivity implements QuestionContr
         ((IITBQA)getApplication()).createQuestionComponent().inject(this);
 
         id = getIntent().getIntExtra(Constants.IntentKeys.QUESTION_ID, 0);
+
+        btnPostAnswer.setOnClickListener( v -> {
+            AnswerDialog answerDialog = new AnswerDialog();
+            Bundle bundle = new Bundle();
+            bundle.putInt(Constants.IntentKeys.QUESTION_ID, id);
+            answerDialog.setArguments(bundle);
+//            orderCancelDialog.setCancelable(false);
+            answerDialog.show(getSupportFragmentManager(), "answer_dialog");
+        });
     }
 
     @Override
@@ -76,4 +92,8 @@ public class QuestionActivity extends AppCompatActivity implements QuestionContr
     }
 
 
+    @Override
+    public void postAnswer(PostAnswerRequest postAnswerRequest) {
+        presenter.postQuestion(postAnswerRequest);
+    }
 }
