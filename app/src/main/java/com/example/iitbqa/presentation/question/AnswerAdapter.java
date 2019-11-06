@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.iitbqa.R;
 import com.example.iitbqa.data.models.Answer;
+import com.example.iitbqa.data.models.Vote;
 import com.example.iitbqa.presentation.home.feed.FeedListAdapter;
 
 import java.text.SimpleDateFormat;
@@ -24,13 +25,15 @@ import butterknife.ButterKnife;
 public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder> {
 
     private List<Answer> answerList;
+    List<Vote> voteList;
     private AnswerAdapter.ClickListener listener;
     private Context context;
 
     public static final String DATE_FORMAT_NOW = "dd MMM";
 
-    public AnswerAdapter(List<Answer> answerList, ClickListener listener, Context context) {
+    public AnswerAdapter(List<Answer> answerList, List<Vote> voteList,  ClickListener listener, Context context) {
         this.answerList = answerList;
+        this.voteList = voteList;
         this.listener = listener;
         this.context = context;
     }
@@ -54,6 +57,8 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
     }
 
     public interface ClickListener {
+        void upvoteClicked(int id);
+        void downvoteClicked(int id);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -92,6 +97,35 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
             tvDate.setText("Answered on " + new SimpleDateFormat(DATE_FORMAT_NOW).format(answer.getTimestamp()));
             tvUpvote.setText(String.valueOf(answer.getVotes()));
             tvAnswer.setText(answer.getContent());
+
+            llUpvote.setVisibility(View.VISIBLE);
+            tvUpvoted.setVisibility(View.GONE);
+
+
+            for (Vote vote: voteList) {
+                if (vote.getAnswerId() == answer.getId()) {
+                    tvUpvoted.setVisibility(View.VISIBLE);
+                    if (vote.isUpvote()) {
+                        tvUpvoted.setText("You have already upvoted this answer");
+                    } else {
+                        tvUpvoted.setText("You have already downvoted this answer");
+                    }
+                    llUpvote.setVisibility(View.GONE);
+                }
+            }
+
+            ivUpvote.setOnClickListener(
+                    v -> {
+                        listener.upvoteClicked(answer.getId());
+                    }
+            );
+
+            ivDownvote.setOnClickListener(
+                    v -> {
+                        listener.downvoteClicked(answer.getId());
+                    }
+            );
+
 
         }
     }

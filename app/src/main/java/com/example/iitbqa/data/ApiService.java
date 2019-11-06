@@ -4,6 +4,7 @@ import com.example.iitbqa.data.models.PostAnswerRequest;
 import com.example.iitbqa.data.models.PostQuestionRequest;
 import com.example.iitbqa.data.models.Question;
 import com.example.iitbqa.data.models.QuestionResponse;
+import com.example.iitbqa.data.models.UpvoteRequest;
 
 import java.util.List;
 
@@ -34,5 +35,10 @@ public interface ApiService {
     Observable<QuestionResponse> getQuestion(
             @Path("ldapId") String ldapId,
             @Path("questionId") int questionId
+    );
+
+    @POST("AddVote")
+    Observable<QuestionResponse> addVote(
+            @Body UpvoteRequest upvoteRequest
     );
 }

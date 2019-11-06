@@ -8,6 +8,7 @@ import com.example.iitbqa.data.models.PostAnswerRequest;
 import com.example.iitbqa.data.models.PostQuestionRequest;
 import com.example.iitbqa.data.models.Question;
 import com.example.iitbqa.data.models.QuestionResponse;
+import com.example.iitbqa.data.models.UpvoteRequest;
 import com.example.iitbqa.exception.EmptyListException;
 
 import java.util.List;
@@ -59,5 +60,9 @@ public class QuestionRepository {
 
     public Observable<QuestionResponse> postAnswer(PostAnswerRequest postAnswerRequest) {
         return retrofit.create(ApiService.class).postAnswer(postAnswerRequest);
+    }
+
+    public Observable<QuestionResponse> addVote(UpvoteRequest upvoteRequest) {
+        return retrofit.create(ApiService.class).addVote(upvoteRequest);
     }
 }

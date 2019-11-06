@@ -15,6 +15,17 @@ public class QuestionResponse {
     @Expose
     List<Answer> answerList;
 
+    @SerializedName("Votes")
+    @Expose
+    List<Vote> voteList;
+
+    public List<Vote> getVoteList() {
+        return voteList;
+    }
+
+    public void setVoteList(List<Vote> voteList) {
+        this.voteList = voteList;
+    }
 
     public List<Question> getQuestion() {
         return question;

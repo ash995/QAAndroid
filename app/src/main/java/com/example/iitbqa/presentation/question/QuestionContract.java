@@ -16,6 +16,8 @@ public interface QuestionContract {
         void getQuestion(int id);
 
         void postQuestion(PostAnswerRequest postAnswerRequest);
+
+        void addVote(int id, boolean isUpvote);
     }
 
 }

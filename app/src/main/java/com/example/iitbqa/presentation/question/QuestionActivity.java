@@ -77,7 +77,7 @@ AnswerDialog.ReturnInterface{
     public void displayQuestion(QuestionResponse questionResponse) {
 //        Toast.makeText(this, "salkdad", Toast.LENGTH_LONG).show();
         tvQuestion.setText(questionResponse.getQuestion().get(0).getQues());
-        rvAnswer.setAdapter(new AnswerAdapter(questionResponse.getAnswerList(), this, this));
+        rvAnswer.setAdapter(new AnswerAdapter(questionResponse.getAnswerList(), questionResponse.getVoteList(), this, this));
         rvAnswer.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -95,5 +95,15 @@ AnswerDialog.ReturnInterface{
     @Override
     public void postAnswer(PostAnswerRequest postAnswerRequest) {
         presenter.postQuestion(postAnswerRequest);
+    }
+
+    @Override
+    public void upvoteClicked(int id) {
+        presenter.addVote(id, true);
+    }
+
+    @Override
+    public void downvoteClicked(int id) {
+        presenter.addVote(id, false);
     }
 }

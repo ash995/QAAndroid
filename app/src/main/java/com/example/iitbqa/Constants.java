@@ -8,6 +8,7 @@ public class Constants {
         public static final String TOPICS = "TOPICS";
         public static final String QUESTION_ID = "QUESTION_ID";
         public static final String POST_ANSWER = "POST_ANSWER";
+        public static final String ADD_VOTE = "ADD_VOTE";
     }
 
     public class PrefKeys {

@@ -1,6 +1,8 @@
 package com.example.iitbqa.di.modules;
 
+import com.example.iitbqa.AuthManager;
 import com.example.iitbqa.data.repository.QuestionRepository;
+import com.example.iitbqa.interactors.AddVoteUseCase;
 import com.example.iitbqa.interactors.GetQuestionUseCase;
 import com.example.iitbqa.interactors.PostAnswerUseCase;
 import com.example.iitbqa.interactors.PostQuestionUseCase;
@@ -22,8 +24,10 @@ public class QuestionModule {
     QuestionContract.Presenter provideQuestionContract(@Named("NetworkThread") Scheduler networkScheduler,
                                                        @Named("MainThread") Scheduler mainScheduler,
                                                        GetQuestionUseCase getQuestionUseCase,
-                                                       PostAnswerUseCase postAnswerUseCase) {
-        return new QuestionPresenter(networkScheduler, mainScheduler, getQuestionUseCase, postAnswerUseCase);
+                                                       PostAnswerUseCase postAnswerUseCase,
+                                                       AddVoteUseCase addVoteUseCase,
+                                                       AuthManager authManager) {
+        return new QuestionPresenter(networkScheduler, mainScheduler, getQuestionUseCase, postAnswerUseCase, addVoteUseCase, authManager);
     }
 
     @Provides
@@ -34,5 +38,10 @@ public class QuestionModule {
     @Provides
     PostAnswerUseCase providePostAnswerUseCase(QuestionRepository questionRepository) {
         return new PostAnswerUseCase(questionRepository);
+    }
+
+    @Provides
+    AddVoteUseCase provideAddVoteUseCase(QuestionRepository questionRepository) {
+        return new AddVoteUseCase(questionRepository);
     }
 }
