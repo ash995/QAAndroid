@@ -1,5 +1,7 @@
 package com.example.iitbqa.presentation.question;
 
+import android.util.Log;
+
 import com.example.iitbqa.Constants;
 import com.example.iitbqa.interactors.GetQuestionUseCase;
 
@@ -41,6 +43,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
                 .observeOn(mainScheduler)
                 .subscribe(
                         questionResponse -> {
+                            Log.d("QUESTION", questionResponse.toString());
                             view.displayQuestion(questionResponse);
                         },
                         error -> {

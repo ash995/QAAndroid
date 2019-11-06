@@ -43,7 +43,7 @@ public class Answer {
     @Expose
     private String userDept;
 
-    @SerializedName("uderdegree")
+    @SerializedName("userdegree")
     @Expose
     private String userDegree;
 

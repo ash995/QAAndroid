@@ -90,7 +90,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
         public void bindViews(Answer answer) {
             tvUser.setText(answer.getUserName() + " , " + answer.getUserDegree());
             tvDate.setText("Answered on " + new SimpleDateFormat(DATE_FORMAT_NOW).format(answer.getTimestamp()));
-            tvUpvote.setText(answer.getVotes());
+            tvUpvote.setText(String.valueOf(answer.getVotes()));
             tvAnswer.setText(answer.getContent());
 
         }

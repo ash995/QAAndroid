@@ -9,19 +9,22 @@ public class QuestionResponse {
 
     @SerializedName("Question")
     @Expose
-    Question question;
+    List<Question> question;
 
     @SerializedName("Answers")
     @Expose
     List<Answer> answerList;
 
-    public Question getQuestion() {
+
+    public List<Question> getQuestion() {
         return question;
     }
 
-    public void setQuestion(Question question) {
+    public void setQuestion(List<Question> question) {
         this.question = question;
     }
+
+
 
     public List<Answer> getAnswerList() {
         return answerList;

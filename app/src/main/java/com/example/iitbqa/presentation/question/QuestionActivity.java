@@ -9,6 +9,7 @@ import butterknife.ButterKnife;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.iitbqa.Constants;
 import com.example.iitbqa.IITBQA;
@@ -46,12 +47,20 @@ public class QuestionActivity extends AppCompatActivity implements QuestionContr
     @Override
     protected void onStart() {
         super.onStart();
+        presenter.attachView(this);
         presenter.getQuestion(id);
     }
 
     @Override
+    protected void onStop() {
+        presenter.detachView();
+        super.onStop();
+    }
+
+    @Override
     public void displayQuestion(QuestionResponse questionResponse) {
-        tvQuestion.setText(questionResponse.getQuestion().getQues());
+//        Toast.makeText(this, "salkdad", Toast.LENGTH_LONG).show();
+        tvQuestion.setText(questionResponse.getQuestion().get(0).getQues());
         rvAnswer.setAdapter(new AnswerAdapter(questionResponse.getAnswerList(), this, this));
         rvAnswer.setLayoutManager(new LinearLayoutManager(this));
     }
