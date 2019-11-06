@@ -31,6 +31,68 @@ public class Answer {
     @Expose
     private Date timestamp;
 
+    @SerializedName("username")
+    @Expose
+    private String userName;
+
+    @SerializedName("userbio")
+    @Expose
+    private String userBio;
+
+    @SerializedName("userdepartment")
+    @Expose
+    private String userDept;
+
+    @SerializedName("uderdegree")
+    @Expose
+    private String userDegree;
+
+    @SerializedName("userspecialization")
+    @Expose
+    private String userSpecialization;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserBio() {
+        return userBio;
+    }
+
+    public void setUserBio(String userBio) {
+        this.userBio = userBio;
+    }
+
+    public String getUserDept() {
+        return userDept;
+    }
+
+    public void setUserDept(String userDept) {
+        this.userDept = userDept;
+    }
+
+    public String getUserDegree() {
+        return userDegree;
+    }
+
+    public void setUserDegree(String userDegree) {
+        this.userDegree = userDegree;
+    }
+
+    public String getUserSpecialization() {
+        return userSpecialization;
+    }
+
+    public void setUserSpecialization(String userSpecialization) {
+        this.userSpecialization = userSpecialization;
+    }
+
+    //    @SerializedName("user")
+
     public int getId() {
         return id;
     }

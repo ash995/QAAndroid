@@ -53,6 +53,7 @@ public class QuestionRepository {
     }
 
     public Observable<QuestionResponse> getQuestion(int questionId) {
-        return null;
+        return retrofit.create(ApiService.class).getQuestion(authManager.getLdapId(), questionId);
     }
+
 }

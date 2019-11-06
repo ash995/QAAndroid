@@ -12,6 +12,7 @@ import com.example.iitbqa.R;
 import com.example.iitbqa.data.models.Answer;
 import com.example.iitbqa.presentation.home.feed.FeedListAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
     private List<Answer> answerList;
     private AnswerAdapter.ClickListener listener;
     private Context context;
+
+    public static final String DATE_FORMAT_NOW = "dd MMM";
 
     public AnswerAdapter(List<Answer> answerList, ClickListener listener, Context context) {
         this.answerList = answerList;
@@ -85,7 +88,10 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
         }
 
         public void bindViews(Answer answer) {
-
+            tvUser.setText(answer.getUserName() + " , " + answer.getUserDegree());
+            tvDate.setText("Answered on " + new SimpleDateFormat(DATE_FORMAT_NOW).format(answer.getTimestamp()));
+            tvUpvote.setText(answer.getVotes());
+            tvAnswer.setText(answer.getContent());
 
         }
     }

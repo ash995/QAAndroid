@@ -1,13 +1,16 @@
 package com.example.iitbqa.presentation.home.feed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.iitbqa.Constants;
 import com.example.iitbqa.IITBQA;
 import com.example.iitbqa.R;
 import com.example.iitbqa.data.models.FeedQuestionModel;
+import com.example.iitbqa.presentation.question.QuestionActivity;
 
 import java.util.List;
 
@@ -74,7 +77,9 @@ public class FeedFragment extends Fragment implements FeedContract.View, FeedLis
 
     @Override
     public void onQuestionClicked(FeedQuestionModel feedQuestionModel) {
-
+        Intent intent = new Intent(getContext(), QuestionActivity.class);
+        intent.putExtra(Constants.IntentKeys.QUESTION_ID, feedQuestionModel.getId());
+        startActivity(intent);
     }
 
     @Override

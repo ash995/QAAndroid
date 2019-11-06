@@ -5,6 +5,7 @@ import java.util.List;
 
 public class FeedQuestionModel {
 
+    int id;
     String user;
     List<String> topicsList;
     String question;
@@ -18,12 +19,21 @@ public class FeedQuestionModel {
         this.question = question.getQues();
         this.description = question.getDescription();
         this.numAnswers = question.getNumAnswers() + " have answered this question";
+        this.id = question.getId();
 
         List<String> topicList = new ArrayList<>();
         for (int i: question.getTopics()) {
             topicList.add(topicsArray[i]);
         }
         this.topicsList = topicList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUser() {
