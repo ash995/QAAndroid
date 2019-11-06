@@ -104,11 +104,11 @@ public class FeedListAdapter extends RecyclerView.Adapter<FeedListAdapter.ViewHo
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
                 );
-                layoutParams.setMargins(8, 0, 8, 0);
+                layoutParams.setMargins(12, 0, 12, 0);
                 textView.setLayoutParams(layoutParams);
-                textView.setPadding(4, 4, 4, 4);
-                textView.setBackgroundColor(Color.parseColor("#808080"));
-                textView.setTextColor(Color.parseColor("#000000"));
+                textView.setPadding(8, 8, 8, 8);
+                textView.setBackgroundColor(Color.parseColor("#EAECEB"));
+                textView.setTextColor(Color.parseColor("#ffffff"));
 
                 llTopics.addView(textView);
             }
