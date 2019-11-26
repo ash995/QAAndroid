@@ -95,11 +95,11 @@ public class SignupActivity extends AppCompatActivity {
 
     List<String> degreeList = new ArrayList<>();
     List<String> degreeCode = new ArrayList<>();
-    private String bio;
-    private String ldap;
-    private String name;
-    private String password;
-    private String specialization;
+    private String bio = "";
+    private String ldap = "";
+    private String name = "";
+    private String password = "";
+    private String specialization = "";
 
     String[] topicList;
     boolean[] checkedItems;
@@ -110,7 +110,7 @@ public class SignupActivity extends AppCompatActivity {
 
     @Inject
     UserRepository userRepository;
-    private String department;
+    private String department = "";
 
 
     @Override

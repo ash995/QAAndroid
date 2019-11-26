@@ -39,8 +39,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_signup)
     Button btnSignup;
-    private String ldap;
-    private String password;
+    private String ldap = "";
+    private String password = "";
 
     @Inject
     AuthManager authManager;
