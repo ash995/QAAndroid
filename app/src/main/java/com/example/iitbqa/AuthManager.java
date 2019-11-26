@@ -1,6 +1,7 @@
 package com.example.iitbqa;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.example.iitbqa.data.models.DegreeChoice;
 import com.example.iitbqa.data.models.DepartmentChoice;
@@ -124,7 +125,9 @@ public class AuthManager {
 
 
     public void setSplashData(SplashData splashData) {
+
         String splashJson = gson.toJson(splashData, SplashData.class);
+        Log.d("splash",splashJson);
         sharedPreferences.edit().putString(Constants.PrefKeys.SPLASH, splashJson).commit();
     }
 }

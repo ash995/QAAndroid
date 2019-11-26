@@ -8,6 +8,7 @@ import retrofit2.Retrofit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.iitbqa.AuthManager;
@@ -52,9 +53,10 @@ public class SplashActivity extends AppCompatActivity {
                 .subscribe(
                         splashData -> {
                             authManager.setSplashData(splashData);
+                            Log.d("splash", "No");
                         },
                         error -> {
-
+                            Log.d("splash", error.getMessage());
                         }
                 );
         int j =0;
