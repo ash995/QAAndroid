@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -131,9 +132,16 @@ public class SignupActivity extends AppCompatActivity {
         Map<String, String> degreeMap = authManager.getDegreeChoice();
 
         degreeCode = degreeMap.keySet();
-        degreeList.addAll(degreeMap.values());
-        departmentList.addAll(authManager.getDepartmentChoices().values());
+
+        for (String s: degreeCode) {
+            degreeList.add(s);
+        }
+//        degreeList.addAll(degreeMap.values());
+//        departmentList.addAll(authManager.getDepartmentChoices().values());
         departmentCode = authManager.getDepartmentChoices().keySet();
+        for (String s: departmentCode) {
+            departmentList.add(s);
+        }
 
         etBio.addTextChangedListener(new TextWatcher() {
             @Override
@@ -298,8 +306,12 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         btnSignup.setOnClickListener(v -> {
+            for (int i: checkedTopics) {
+                Log.d("topics", String.valueOf(i));
+            }
+
             retrofit.create(ApiService.class).addUser(new User(
-                    0,ldap, name, department, password, checkedTopics, bio, atvSearch.getText().toString(), "NA", 0, specialization
+                    0,ldap, name, atvDept.getText().toString(), password, checkedTopics, bio, atvSearch.getText().toString(), "NA", 0, specialization
             ))
                     .subscribeOn(networkScheduler)
                     .observeOn(mainScheduler)
