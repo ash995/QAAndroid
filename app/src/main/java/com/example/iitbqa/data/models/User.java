@@ -1,10 +1,15 @@
 package com.example.iitbqa.data.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class User {
 
     private int id;
+    @Expose
+    @SerializedName("ldapid")
     private String ldapId;
     private String name;
     private String department;
