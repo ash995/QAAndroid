@@ -17,8 +17,8 @@ public class RepositoryModule {
 
     @Provides
     @Singleton
-    UserRepository provideUserRepository(Retrofit retrofit, SharedPreferences sharedPreferences) {
-        return  new UserRepository(retrofit, sharedPreferences);
+    UserRepository provideUserRepository(Retrofit retrofit, SharedPreferences sharedPreferences, AuthManager authManager) {
+        return  new UserRepository(retrofit, sharedPreferences, authManager);
     }
 
     @Provides
