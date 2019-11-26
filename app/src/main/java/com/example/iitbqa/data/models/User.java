@@ -7,18 +7,47 @@ import java.util.List;
 
 public class User {
 
+    @Expose
+    @SerializedName("id")
     private int id;
     @Expose
     @SerializedName("ldapid")
     private String ldapId;
+
+    @Expose
+    @SerializedName("name")
     private String name;
+
+    @Expose
+    @SerializedName("department")
     private String department;
+
+    @Expose
+    @SerializedName("password")
     private String password;
+
+    @Expose
+    @SerializedName("subscribed_topics")
     private List<Integer> subscribedTopics;
+
+    @Expose
+    @SerializedName("bio")
     private String bio;
+
+    @Expose
+    @SerializedName("degree")
     private String degree;
+
+    @Expose
+    @SerializedName("year")
     private String year;
+
+    @Expose
+    @SerializedName("upvotes")
     private int upvotes;
+
+    @Expose
+    @SerializedName("specialization")
     private String specialization;
 
 
