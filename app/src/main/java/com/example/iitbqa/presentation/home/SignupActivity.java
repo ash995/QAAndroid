@@ -131,8 +131,8 @@ public class SignupActivity extends AppCompatActivity {
         Map<String, String> degreeMap = authManager.getDegreeChoice();
 
         degreeCode = degreeMap.keySet();
-        degreeList = (List<String>) degreeMap.values();
-        departmentList = (List<String>) authManager.getDepartmentChoices().values();
+        degreeList.addAll(degreeMap.values());
+        departmentList.addAll(authManager.getDepartmentChoices().values());
         departmentCode = authManager.getDepartmentChoices().keySet();
 
         etBio.addTextChangedListener(new TextWatcher() {
@@ -328,7 +328,7 @@ public class SignupActivity extends AppCompatActivity {
         AutoCompleteTextView actv1 = (AutoCompleteTextView) findViewById(R.id.atv_dept);
         actv1.setThreshold(1);//will start working from first character
         actv1.setAdapter(adapter1);//setting the adapter data into the AutoCompleteTextView
-        
+
     }
 
     private void monitorPostButtonStatus(String bio, String password, String ldap, String name, String specialization, List<Integer> checkedTopics, String department, String degree) {
