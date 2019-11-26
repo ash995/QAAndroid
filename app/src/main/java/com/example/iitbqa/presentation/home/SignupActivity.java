@@ -306,12 +306,14 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         btnSignup.setOnClickListener(v -> {
+            List<Integer> finalTopics = new ArrayList<>();
             for (int i: checkedTopics) {
                 Log.d("topics", String.valueOf(i));
+                finalTopics.add(i + 1);
             }
 
             retrofit.create(ApiService.class).addUser(new User(
-                    0,ldap, name, atvDept.getText().toString(), password, checkedTopics, bio, atvSearch.getText().toString(), "NA", 0, specialization
+                    0,ldap, name, atvDept.getText().toString(), password, finalTopics, bio, atvSearch.getText().toString(), "NA", 0, specialization
             ))
                     .subscribeOn(networkScheduler)
                     .observeOn(mainScheduler)
