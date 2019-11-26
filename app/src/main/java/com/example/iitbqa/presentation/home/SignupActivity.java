@@ -21,7 +21,10 @@ import com.example.iitbqa.data.models.User;
 import com.example.iitbqa.data.repository.UserRepository;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -77,8 +80,8 @@ public class SignupActivity extends AppCompatActivity {
     @BindView(R.id.btn_signup)
     Button btnSignup;
 
-    @BindView(R.id.et_department)
-    EditText etDepartment;
+    @BindView(R.id.atv_dept)
+    AutoCompleteTextView atvDept;
 
 
     @Inject
@@ -94,7 +97,9 @@ public class SignupActivity extends AppCompatActivity {
 
 
     List<String> degreeList = new ArrayList<>();
-    List<String> degreeCode = new ArrayList<>();
+    Set<String> degreeCode = new HashSet<>();
+    Set<String> departmentCode = new HashSet<>();
+    List<String> departmentList = new ArrayList<>();
     private String bio = "";
     private String ldap = "";
     private String name = "";
@@ -123,12 +128,12 @@ public class SignupActivity extends AppCompatActivity {
         topicList = authManager.getTopicList();
         checkedItems = new boolean[topicList.length];
 
-        List<DegreeChoice> degreeChoices = authManager.getDegreeChoice();
+        Map<String, String> degreeMap = authManager.getDegreeChoice();
 
-        for (DegreeChoice d : degreeChoices) {
-            degreeCode.add(d.getDegreeChoice().get(0));
-            degreeList.add(d.getDegreeChoice().get(1));
-        }
+        degreeCode = degreeMap.keySet();
+        degreeList = (List<String>) degreeMap.values();
+        departmentList = (List<String>) authManager.getDepartmentChoices().values();
+        departmentCode = authManager.getDepartmentChoices().keySet();
 
         etBio.addTextChangedListener(new TextWatcher() {
             @Override
@@ -201,23 +206,23 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        etDepartment.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                department = s.toString();
-                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, department, atvSearch.getText().toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+//        etDepartment.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                department = s.toString();
+//                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, department, atvSearch.getText().toString());
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
         etSpec.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -317,6 +322,13 @@ public class SignupActivity extends AppCompatActivity {
         actv.setThreshold(1);//will start working from first character
         actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
 
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>
+                (this, android.R.layout.select_dialog_item, departmentList);
+        //Getting the instance of AutoCompleteTextView
+        AutoCompleteTextView actv1 = (AutoCompleteTextView) findViewById(R.id.atv_dept);
+        actv1.setThreshold(1);//will start working from first character
+        actv1.setAdapter(adapter1);//setting the adapter data into the AutoCompleteTextView
+        
     }
 
     private void monitorPostButtonStatus(String bio, String password, String ldap, String name, String specialization, List<Integer> checkedTopics, String department, String degree) {

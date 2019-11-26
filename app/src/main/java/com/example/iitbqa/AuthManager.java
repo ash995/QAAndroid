@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -39,12 +40,12 @@ public class AuthManager {
         return topicsArray;
     }
 
-    public List<DepartmentChoice> getDepartmentChoices() {
-        return  gson.fromJson(sharedPreferences.getString(Constants.PrefKeys.SPLASH, null), SplashData.class).getDepartmentChoiceList();
+    public Map<String, String> getDepartmentChoices() {
+        return  gson.fromJson(sharedPreferences.getString(Constants.PrefKeys.SPLASH, null), SplashData.class).getDepartmentMap();
     }
 
-    public List<DegreeChoice> getDegreeChoice() {
-        return  gson.fromJson(sharedPreferences.getString(Constants.PrefKeys.SPLASH, null), SplashData.class).getDegreeChoiceList();
+    public Map<String, String> getDegreeChoice() {
+        return  gson.fromJson(sharedPreferences.getString(Constants.PrefKeys.SPLASH, null), SplashData.class).getDegreeMap();
     }
 
 

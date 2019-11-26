@@ -4,11 +4,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.Map;
 
 public class SplashData {
     @Expose
     @SerializedName("department_choices")
-    List<DepartmentChoice> departmentChoiceList;
+    Map<String, String> departmentMap;
 
     @Expose
     @SerializedName("topics")
@@ -16,14 +17,22 @@ public class SplashData {
 
     @Expose
     @SerializedName("degree_choices")
-    List<DegreeChoice> degreeChoiceList;
+    Map<String, String> degreeMap;
 
-    public List<DepartmentChoice> getDepartmentChoiceList() {
-        return departmentChoiceList;
+    public Map<String, String> getDepartmentMap() {
+        return departmentMap;
     }
 
-    public void setDepartmentChoiceList(List<DepartmentChoice> departmentChoiceList) {
-        this.departmentChoiceList = departmentChoiceList;
+    public void setDepartmentMap(Map<String, String> departmentMap) {
+        this.departmentMap = departmentMap;
+    }
+
+    public Map<String, String> getDegreeMap() {
+        return degreeMap;
+    }
+
+    public void setDegreeMap(Map<String, String> degreeMap) {
+        this.degreeMap = degreeMap;
     }
 
     public List<Topic> getTopics() {
@@ -34,11 +43,4 @@ public class SplashData {
         this.topics = topics;
     }
 
-    public List<DegreeChoice> getDegreeChoiceList() {
-        return degreeChoiceList;
-    }
-
-    public void setDegreeChoiceList(List<DegreeChoice> degreeChoiceList) {
-        this.degreeChoiceList = degreeChoiceList;
-    }
 }
