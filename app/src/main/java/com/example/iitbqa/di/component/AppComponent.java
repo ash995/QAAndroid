@@ -11,6 +11,7 @@ import com.example.iitbqa.presentation.SplashActivity;
 import com.example.iitbqa.presentation.home.HomeActivity;
 import com.example.iitbqa.presentation.home.LoginActivity;
 import com.example.iitbqa.presentation.home.SignupActivity;
+import com.example.iitbqa.presentation.home.notification.NotificationFragment;
 import com.example.iitbqa.presentation.question.AnswerDialog;
 
 import javax.inject.Singleton;
@@ -38,4 +39,6 @@ public interface AppComponent {
     void inject(SignupActivity signupActivity);
 
     void inject(SplashActivity splashActivity);
+
+    void inject(NotificationFragment notificationFragment);
 }

@@ -1,5 +1,6 @@
 package com.example.iitbqa.data;
 
+import com.example.iitbqa.data.models.NotificationModel;
 import com.example.iitbqa.data.models.PostAnswerRequest;
 import com.example.iitbqa.data.models.PostQuestionRequest;
 import com.example.iitbqa.data.models.Question;
@@ -57,5 +58,10 @@ public interface ApiService {
 
     @GET("GeneralData")
     Observable<SplashData> getGeneralData();
+
+    @GET("GetNotifications/{ldap}")
+    Observable<List<NotificationModel>> getNotification(
+            @Path("ldap") String ldap
+    );
 
 }

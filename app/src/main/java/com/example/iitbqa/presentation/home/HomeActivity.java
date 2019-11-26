@@ -16,6 +16,7 @@ import com.example.iitbqa.IITBQA;
 import com.example.iitbqa.R;
 import com.example.iitbqa.data.models.User;
 import com.example.iitbqa.presentation.home.feed.FeedFragment;
+import com.example.iitbqa.presentation.home.notification.NotificationFragment;
 import com.example.iitbqa.presentation.home.post_question.PostQuestionFragment;
 import com.example.iitbqa.presentation.home.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -62,6 +63,10 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.action_profile:
                         selectedFragment = ProfileFragment.getInstance();
                         TAG = ProfileFragment.class.getSimpleName();
+                        break;
+                    case R.id.action_notif:
+                        selectedFragment = NotificationFragment.getInstance();
+                        TAG = NotificationFragment.class.getSimpleName();
                         break;
                 }
 
