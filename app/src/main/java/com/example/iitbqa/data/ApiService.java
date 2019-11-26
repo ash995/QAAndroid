@@ -4,7 +4,9 @@ import com.example.iitbqa.data.models.PostAnswerRequest;
 import com.example.iitbqa.data.models.PostQuestionRequest;
 import com.example.iitbqa.data.models.Question;
 import com.example.iitbqa.data.models.QuestionResponse;
+import com.example.iitbqa.data.models.SplashData;
 import com.example.iitbqa.data.models.UpvoteRequest;
+import com.example.iitbqa.data.models.User;
 
 import java.util.List;
 
@@ -41,4 +43,19 @@ public interface ApiService {
     Observable<QuestionResponse> addVote(
             @Body UpvoteRequest upvoteRequest
     );
+
+    @GET("GetUser/{ldap}/{password}")
+    Observable<User> getUser(
+           @Path("ldap") String ldap,
+           @Path("password") String password
+    );
+
+    @POST("AddUser")
+    Observable<User> addUser(
+            @Body User user
+    );
+
+    @GET("GeneralData")
+    Observable<SplashData> getGeneralData();
+
 }

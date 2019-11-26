@@ -7,7 +7,10 @@ import com.example.iitbqa.di.modules.PostQuestionModule;
 import com.example.iitbqa.di.modules.QuestionModule;
 import com.example.iitbqa.di.modules.RepositoryModule;
 import com.example.iitbqa.di.modules.UserModule;
+import com.example.iitbqa.presentation.SplashActivity;
 import com.example.iitbqa.presentation.home.HomeActivity;
+import com.example.iitbqa.presentation.home.LoginActivity;
+import com.example.iitbqa.presentation.home.SignupActivity;
 import com.example.iitbqa.presentation.question.AnswerDialog;
 
 import javax.inject.Singleton;
@@ -29,4 +32,10 @@ public interface AppComponent {
     void inject(HomeActivity homeActivity);
 
     void inject(AnswerDialog answerDialog);
+
+    void inject(LoginActivity loginActivity);
+
+    void inject(SignupActivity signupActivity);
+
+    void inject(SplashActivity splashActivity);
 }

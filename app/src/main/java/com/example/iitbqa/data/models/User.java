@@ -14,9 +14,10 @@ public class User {
     private String degree;
     private String year;
     private int upvotes;
+    private String specialization;
 
 
-    public User(int id, String ldapId, String name, String department, String password, List<Integer> subscribedTopics, String bio, String degree, String year, int upvotes) {
+    public User(int id, String ldapId, String name, String department, String password, List<Integer> subscribedTopics, String bio, String degree, String year, int upvotes, String specialization) {
         this.id = id;
         this.ldapId = ldapId;
         this.name = name;
@@ -27,6 +28,15 @@ public class User {
         this.degree = degree;
         this.year = year;
         this.upvotes = upvotes;
+        this.specialization = specialization;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
     public int getUpvotes() {

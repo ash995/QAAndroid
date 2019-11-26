@@ -14,6 +14,8 @@ public class Constants {
     public class PrefKeys {
 
         public static final String USER = "USER";
+        public static final String LOGIN = "LOGIN";
+        public static final String SPLASH = "SPLASH";
     }
 
     public class IntentKeys {
