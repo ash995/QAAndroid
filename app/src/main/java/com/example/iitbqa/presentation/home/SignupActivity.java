@@ -144,7 +144,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 bio = s.toString();
-                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, department, atvSearch.getText().toString());
+                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, atvDept.getText().toString(), atvSearch.getText().toString());
             }
 
             @Override
@@ -162,7 +162,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 ldap = s.toString();
-                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, department, atvSearch.getText().toString());
+                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, atvDept.getText().toString(), atvSearch.getText().toString());
             }
 
             @Override
@@ -180,7 +180,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 name = s.toString();
-                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, department, atvSearch.getText().toString());
+                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, atvDept.getText().toString(), atvSearch.getText().toString());
             }
 
             @Override
@@ -197,7 +197,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 password = s.toString();
-                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, department, atvSearch.getText().toString());
+                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, atvDept.getText().toString(), atvSearch.getText().toString());
             }
 
             @Override
@@ -232,7 +232,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 specialization = s.toString();
-                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, department, atvSearch.getText().toString());
+                monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, atvDept.getText().toString(), atvSearch.getText().toString());
             }
 
             @Override
@@ -282,7 +282,7 @@ public class SignupActivity extends AppCompatActivity {
 //                        selectedTopics.add(topicList[i]);
 //                    }
 
-                    monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, atvSearch.getText().toString(), atvSearch.getText().toString());
+                    monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, atvDept.getText().toString(), atvSearch.getText().toString());
 
 
                 }
@@ -329,6 +329,12 @@ public class SignupActivity extends AppCompatActivity {
         actv1.setThreshold(1);//will start working from first character
         actv1.setAdapter(adapter1);//setting the adapter data into the AutoCompleteTextView
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        monitorPostButtonStatus(bio, password, ldap, name, specialization, checkedTopics, atvDept.getText().toString(), atvSearch.getText().toString());
     }
 
     private void monitorPostButtonStatus(String bio, String password, String ldap, String name, String specialization, List<Integer> checkedTopics, String department, String degree) {
