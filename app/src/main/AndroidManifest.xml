@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.home.SignupActivity" />
+
         <activity android:name=".presentation.home.LoginActivity" />
         <activity android:name=".presentation.question.QuestionActivity" />
         <activity android:name=".presentation.home.HomeActivity">
