@@ -1,5 +1,7 @@
 package com.example.iitbqa.presentation.home.post_question;
 
+import android.util.Log;
+
 import com.example.iitbqa.Constants;
 import com.example.iitbqa.interactors.PostQuestionUseCase;
 
@@ -47,7 +49,7 @@ public class PostQuestionPresenter implements PostQuestionContract.Presenter {
                             view.showSuccess();
                         },
                         error -> {
-
+                            Log.d("error", error.getMessage());
                         }
                 );
     }

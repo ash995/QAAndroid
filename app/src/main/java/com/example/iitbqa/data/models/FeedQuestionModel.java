@@ -36,7 +36,7 @@ public class FeedQuestionModel {
 
         List<String> topicList = new ArrayList<>();
         for (int i: question.getTopics()) {
-            topicList.add(topicsArray[i]);
+            topicList.add(topicsArray[i-1]);
         }
         this.topicsList = topicList;
     }

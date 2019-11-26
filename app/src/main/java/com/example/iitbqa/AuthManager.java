@@ -68,7 +68,9 @@ public class AuthManager {
         //subscribedTopics.add(13);
 //        User user1 = new User(1, "roshanp", "Roshan", "CSE", "$Money#", subscribedTopics1, "PMRF fellow", "PHD", "F", 10);
 //        User user2 = new User(2, "muthumani", "Muthu", "PHY", "NoFan%", subscribedTopics2, "South Indian Guy", "PHD", "F", 10);
+        //Log.d("user", user.getBio());
         String userJson = gson.toJson(user, User.class);
+        Log.d("user", userJson);
         sharedPreferences.edit().putString(Constants.PrefKeys.USER, userJson).commit();
     }
 
@@ -85,7 +87,7 @@ public class AuthManager {
         List<String> topics = new ArrayList<>();
         String[] topicsArray = getTopicList();
         for (int i: customerTopics) {
-            topics.add(topicsArray[i]);
+            topics.add(topicsArray[i-1]);
         }
         return topics;
     }

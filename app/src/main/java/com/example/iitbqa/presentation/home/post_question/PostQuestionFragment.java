@@ -170,7 +170,11 @@ public class PostQuestionFragment extends Fragment implements PostQuestionContra
         });
 
         btnPost.setOnClickListener(v-> {
-            presenter.postQuestion(question, description, checkedTopics);
+            List<Integer> finalTopics = new ArrayList<>();
+            for (int i: checkedTopics) {
+                finalTopics.add(i+1);
+            }
+            presenter.postQuestion(question, description, finalTopics);
         });
         return view;
     }
@@ -178,10 +182,12 @@ public class PostQuestionFragment extends Fragment implements PostQuestionContra
     @Override
     public void onStart() {
         super.onStart();
+        presenter.attachView(this);
     }
 
     @Override
     public void onStop() {
+        presenter.detachView();
         super.onStop();
     }
 

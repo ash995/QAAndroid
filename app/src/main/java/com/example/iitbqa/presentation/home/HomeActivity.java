@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         ((IITBQA) getApplication()).getAppComponent().inject(this);
 
-        authManager.saveUser(new User());
+//        authManager.saveUser(new User());
 
 
         bnHome.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

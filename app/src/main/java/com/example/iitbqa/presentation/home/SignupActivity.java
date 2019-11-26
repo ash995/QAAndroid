@@ -1,6 +1,7 @@
 package com.example.iitbqa.presentation.home;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -321,6 +322,9 @@ public class SignupActivity extends AppCompatActivity {
                             user -> {
                                 authManager.saveUser(user);
                                 authManager.setUserLoggedIn(true);
+                                Intent intent = new Intent(this, HomeActivity.class);
+                                startActivity(intent);
+                                finish();
                             },
                             error -> {
 

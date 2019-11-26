@@ -1,5 +1,6 @@
 package com.example.iitbqa.presentation.home.profile;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.example.iitbqa.AuthManager;
 import com.example.iitbqa.IITBQA;
 import com.example.iitbqa.R;
+import com.example.iitbqa.presentation.home.LoginActivity;
 
 import java.util.List;
 
@@ -104,7 +106,10 @@ public class ProfileFragment extends Fragment implements ProfileContract.View{
         }
 
         btnLogout.setOnClickListener(v -> {
-
+            authManager.setUserLoggedIn(false);
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         });
         return view;
     }

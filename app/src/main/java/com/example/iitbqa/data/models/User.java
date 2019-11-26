@@ -43,7 +43,7 @@ public class User {
     private String year;
 
     @Expose
-    @SerializedName("upvotes")
+    @SerializedName("totalvotes")
     private int upvotes;
 
     @Expose

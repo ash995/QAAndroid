@@ -102,8 +102,11 @@ public class LoginActivity extends AppCompatActivity {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(user -> {
+//                authManager.saveUser(user);
+//                authManager.setUserLoggedIn(true);
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
+                finish();
             },
                     error -> {
                         if (error instanceof CreatedException) {
